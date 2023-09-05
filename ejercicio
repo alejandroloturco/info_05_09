@@ -1,0 +1,38 @@
+paciente=[]
+prom = []
+
+while True:
+    cont = int(input(""""seleccione:                            
+                     \r1- Ingresar paciente
+                     \r2- Ver cantidad de pacientes
+                     \r3- Promedio de edades de los pacientes ingresados
+                     \r4- Buscar paciente
+                     \r5 -Mostrar pacientes ingresados
+                     """))                  #menu que pregunta que desea hacer el usuario
+    if cont == 1:                           #opcion que ingresa un paciente 
+        datos_paciente = []
+        datos_paciente.append(input("Ingrese el nombre de la mascota: "))
+        datos_paciente.append(input("Ingrese el tipo de mascota:","\n", "1----> Perro ", "\n", "2----> Gatos"))
+        datos_paciente.append(int(input("Ingrese la edad de la mascota: ")))
+        prom.append(datos_paciente[2])
+        datos_paciente.append(int(input("Ingrese el estado en el que se encuetra la mascota:","\n","1----> Buen estado","\n","2----> Grave", "\n","3----> Estado critico")))
+    elif cont == 2: 
+        cats = 0
+        dogs = 0                          #opcion que permite ver la cantidad de pacientes (perros y gatos)
+        for x in range (paciente):
+            if x[1] == 1:
+                dogs += 1
+            elif x[1]== 2:
+                cats += 1
+        print (f"Hay {cats} gatos y {dogs} perros")
+    elif cont ==3:                            #opcion que permite ver el promedio de las edades de las mascotas         
+        print(sum(prom)/len(prom))          
+    elif cont == 4:                           #opcion que permite mostrar los pacientes graves y los de estado critico   
+        grave = 0
+        critico = 0                         
+        for x in  paciente:
+            if x[3] == 2:
+                grave += 1
+            elif x[3] ==  3:
+                critico += 1
+        print (f"Hay {grave} en estado grave y {critico} en estado critico")
