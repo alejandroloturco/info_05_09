@@ -3,7 +3,7 @@ prom = []
 perro = 0                                           #contador que ayuda a tener el codigo para perros
 gato = 0                                            #contador que ayuda a tener el codigo para gatos
 while True:
-    print('Bienvenido a la clinica veterinaria'.center(85))
+    print('BIENVENIDO A LA CLINICA VETERINARIA'.center(85))
     cont = int(input('''seleccione:                            
                      \r1- Ingresar paciente
                      \r2- Ver cantidad de pacientes
