@@ -95,7 +95,7 @@ while True:
                   \rEstado de salud: {y[6]}
                   ''')
     elif cont == 7:
-        salida = 0
+        salida = 1
         while True:
             salir = int(input('''Seleccione:
                             \r1- Confirmar salida 🤙
