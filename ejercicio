@@ -101,11 +101,7 @@ while True:
                             \r1- Confirmar salida 🤙
                             \r2- Rechazar salida ❌
                             \rIngrese el numero correspondiente: '''))
-            if salir == 1:
-                break
-            elif salir == 2:
-                break
-            elif salida == 3:
+            if salir == 1 or salir == 2 or salida == 3:
                 break
             else:
                 print('3. Ingrese la opción correcta 🚫')
