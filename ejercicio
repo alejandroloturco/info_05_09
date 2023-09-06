@@ -4,7 +4,7 @@ perro = 0                                           #contador que ayuda a tener 
 gato = 0                                            #contador que ayuda a tener el codigo para gatos
 while True:
     print('Bienvenido a la clinica veterinaria'.center(85))
-    cont = int(input(""""seleccione:                            
+    cont = int(input('''seleccione:                            
                      \r1- Ingresar paciente
                      \r2- Ver cantidad de pacientes
                      \r3- Promedio de edades de los pacientes ingresados
@@ -12,83 +12,105 @@ while True:
                      \r5- Buscar paciente por codigo
                      \r6- Mostrar pacientes ingresados
                      \r7- Salir
-                     """))                  #menu que pregunta que desea hacer el usuario
+                     \rIngrese el numero correspondiente: '''))                  #menu que pregunta que desea hacer el usuario
     if cont == 1:                           #opcion que ingresa un paciente 
         datos_paciente = []
         datos_paciente.append(input("Ingrese el nombre de la mascota: "))
         mascota = int(input('''Ingrese el tipo de mascota: 
-                                    \n1----> Perro 
-                                    \n2----> Gatos''')) 
+                            \r1----> Perro 
+                            \r2----> Gatos
+                            \rIngrese el numero correspondiente: ''')) 
         if mascota == 1:
             perro += 1
             datos_paciente.append(mascota)
-            datos_paciente.append(perro)       
+            datos_paciente.append(perro)
+            datos_paciente.append('Perro')   
         elif mascota == 2:
             gato += 1
             datos_paciente.append(mascota)
             datos_paciente.append(gato)
+            datos_paciente.append('Gato')
         datos_paciente.append(int(input("Ingrese la edad de la mascota: ")))
-        prom.append(datos_paciente[2])
-        datos_paciente.append(int(input('''Ingrese el estado en el que se encuetra la mascota: 
-                                        \n1----> Buen estado
-                                        \n2----> Grave
-                                        \n3----> Estado critico''')))
+        prom.append(datos_paciente[4])
+        estado = int(input('''Ingrese el estado en el que se encuetra la mascota: 
+                                        \r1----> Buen estado
+                                        \r2----> Grave
+                                        \r3----> Estado critico
+                                        \rIngrese el numero correspondiente: '''))
+        if estado == 1:
+            datos_paciente.append(estado)
+            datos_paciente.append("Buen estado")
+        elif estado == 2:
+            datos_paciente.append(estado)
+            datos_paciente.append("Grave")
+        elif estado == 3:    
+            datos_paciente.append(estado)    
+            datos_paciente.append("Estado critico")            
+        paciente.append(datos_paciente)
     elif cont == 2:                          #opcion que permite ver la cantidad de pacientes (perros y gatos)
         cats = 0
         dogs = 0                          
         for x in paciente:
-            if x[1] == mascota:
+            if x[1] == 1:
                 dogs += 1
-            elif x[1]== mascota:
+            elif x[1]== 2:
                 cats += 1
         print (f"Hay {cats} gatos y {dogs} perros")
-    elif cont == 3:                            #opcion que permite ver el promedio de las edades de las mascotas         
+    elif cont == 3:                           #opcion que permite ver el promedio de las edades de las mascotas         
         print(sum(prom)/len(prom))          
     elif cont == 4:                           #opcion que permite mostrar los pacientes graves y los de estado critico   
         grave = 0
         critico = 0                         
         for x in  paciente:
-            if x[4] == 2:
+            if x[5] == 2:
                 grave += 1
-            elif x[4] ==  3:
+            elif x[5] ==  3:
                 critico += 1
         print (f"Hay {grave} en estado grave y {critico} en estado critico")
     elif cont == 5:                             #opcion que permite buscar al paciente por codigo
         etiqueta = int(input('''Ingrese:
                             \r1- Can
                             \r2- Fel
-                             '''))
-        codigo = int(input('Ingrese el coodigo numerico correspondiente al paciente: '))
+                            \rIngrese el numero correspondiente: '''))
+        codigo = int(input('Ingrese el codigo numerico correspondiente al paciente: '))
         for z in paciente:
             if z[1] == etiqueta and z[2] == codigo:
                 if etiqueta == 1:
-                    print('Can'+'{:03d}'.format(z[2]))
+                    print(f'''Nombre: {z[0]}
+                            \rCan{z[2]:03d}
+                            \rEdad: {z[4]}
+                            \rEstado: {z[6]}
+                            ''')
                 elif etiqueta == 2:
-                    print('Fel'+'{:03d}'.format(z[2]))
+                    print(f'''Nombre: {z[0]}
+                            \rFel{z[2]:03d}
+                            \rEdad: {z[4]}
+                            \rEstado: {z[6]}
+                            ''')
     elif cont == 6:                             #opcion que muestra los pacientes ingresados
         for y in paciente:
-            print(f'''\tnombre: {y[0]} 
-                  \ttipo de mascota: {y[1]} 
-                  \tedad: {y[2]} 
-                  \testado de salud> {y[3]}
+            print(f'''Nombre: {y[0]} 
+                  \rTipo de mascota: {y[3]} 
+                  \rEdad: {y[4]} 
+                  \rEstado de salud: {y[6]}
                   ''')
     elif cont == 7:
         salida = 0
         while True:
-            salir = input('''Seleccione:
+            salir = int(input('''Seleccione:
                             \r1- Confirmar salida 🤙
                             \r2- Rechazar salida ❌
-                            ''')
-            if salir == '1':
+                            \rIngrese el numero correspondiente: '''))
+            if salir == 1:
                 break
-            elif salir == '2':
+            elif salir == 2:
                 break
-            elif salida == '3':
+            elif salida == 3:
                 break
             else:
                 print('3. Ingrese la opción correcta 🚫')
                 salida += 1
-        if salir == '2':
+        if salir == 2 or salida == 3:
             continue
-        elif salir == '1':
+        elif salir == 1:
             break
